@@ -42,7 +42,7 @@ export const aboutContent = [
 
 export const projects = [
   {
-    title: "GitHub QnA - Intelligent GitHub Repository Assistant",
+    title: "RepoMind - Intelligent GitHub Repository Assistant",
     content: [
       "AI-powered tool that analyzes GitHub repositories to generate summaries, insights, and code explanations.",
       "Supports natural language queries to help users explore repository structure, tech stack, and documentation effortlessly.",
