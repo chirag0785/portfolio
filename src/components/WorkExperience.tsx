@@ -25,32 +25,59 @@ const WorkExperience = () => {
                         transition={{ duration: 0.5, delay: index * 0.2 }}
                         className="relative group"
                     >
-                        <div className="flex flex-col md:flex-row items-center md:items-start gap-6 bg-[#1a1a2e]/60 border border-gray-700 backdrop-blur-lg rounded-xl p-6 shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                            <div className="flex-shrink-0">
-                                <Image
-                                    src={work.logo}
-                                    alt={`${work.company} Logo`}
-                                    width={70}
-                                    height={70}
-                                    className="rounded-lg transition-all duration-300 group-hover:scale-110"
-                                />
+                        <div className="flex flex-col bg-[#1a1a2e]/60 border border-gray-700 backdrop-blur-lg rounded-xl p-6 shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                            {/* Header Section */}
+                            <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-6">
+                                <div className="flex-shrink-0">
+                                    <Image
+                                        src={work.logo}
+                                        alt={`${work.company} Logo`}
+                                        width={70}
+                                        height={70}
+                                        className="rounded-lg transition-all duration-300 group-hover:scale-110"
+                                    />
+                                </div>
+                                <div className="flex flex-col space-y-2 text-center md:text-left flex-1">
+                                    <h3 className="text-2xl md:text-3xl font-semibold text-white">
+                                        {work.title}
+                                    </h3>
+                                    <p className="text-lg text-gray-300">{work.company}</p>
+                                    {work.teamName && (
+                                        <p className="text-sm text-blue-400 font-medium">
+                                            {work.teamName}
+                                        </p>
+                                    )}
+                                    <p className="text-sm text-gray-400">{work.duration}</p>
+                                    <span
+                                        className={`mt-2 inline-block px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 w-fit ${
+                                            work.status === "Upcoming"
+                                                ? "bg-yellow-500 text-black shadow-md shadow-yellow-500/50"
+                                                : "bg-green-500 text-black shadow-md shadow-green-500/50"
+                                        }`}
+                                    >
+                                        {work.status}
+                                    </span>
+                                </div>
                             </div>
-                            <div className="flex flex-col space-y-2 text-center md:text-left">
-                                <h3 className="text-2xl md:text-3xl font-semibold text-white">
-                                    {work.title}
-                                </h3>
-                                <p className="text-lg text-gray-300">{work.company}</p>
-                                <p className="text-sm text-gray-400">{work.duration}</p>
-                                <span
-                                    className={`mt-2 inline-block px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
-                                        work.status === "Upcoming"
-                                            ? "bg-yellow-500 text-black shadow-md shadow-yellow-500/50"
-                                            : "bg-green-500 text-black shadow-md shadow-green-500/50"
-                                    }`}
-                                >
-                                    {work.status}
-                                </span>
-                            </div>
+
+                            {/* Description Section */}
+                            {work.description && work.description.length > 0 && (
+                                <div className="border-t border-gray-700 pt-4">
+                                    <ul className="space-y-2">
+                                        {work.description.map((point, idx) => (
+                                            <li
+                                                key={idx}
+                                                className="flex items-start gap-3 text-gray-300"
+                                            >
+                                                <span className="text-blue-400 mt-1 flex-shrink-0">
+                                                    ▹
+                                                </span>
+                                                <span className="leading-relaxed">{point}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
                         </div>
 
                         {/* Connector Line */}

@@ -3,7 +3,6 @@ import { Spotlight } from './ui/Spotlight';
 import { TypewriterEffectSmooth } from './ui/TypewriterEffect';
 import { aboutMe } from '../../data';
 import Image from 'next/image';
-import snippetImage from '../../public/images/portfolio-image.png';
 import HelloIcon from './ui/HelloIcon';
 
 const Hero = () => {
@@ -42,12 +41,12 @@ const Hero = () => {
                 <div className="w-full flex justify-center">
                     <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg aspect-[4/3]">
                         <Image
-                            src={snippetImage}
+                            src={`/images/portfolio-image.png`}
                             alt="Hero Image"
                             className="shadow-lg object-cover rounded-lg"
                             fill
                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 400px, 500px"
-                            priority
+                            loading='lazy'
                         />
                     </div>
                 </div>

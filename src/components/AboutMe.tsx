@@ -91,7 +91,7 @@ export function AboutMe() {
               "flex flex-col items-start",
               "w-full h-fit"
             )}
-            link={"https://drive.google.com/file/d/1RyPiOLKuKV83__ClyiPGKcXT0pEerS00/view?usp=drive_link"}
+            link={process.env.NEXT_PUBLIC_RESUME_LINK}
           />
     </div>
   );
